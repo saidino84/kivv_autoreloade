@@ -1,0 +1,26 @@
+#:include card_item.kv
+<BeerListScreen>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            title:'Beer App List'
+            anchor_title:'center'
+            #md_bg_color:app.theme_cls.disabled_hint_text_color
+            #md_bg_color:app.theme_cls.bg_dark
+            md_bg_color:app.theme_cls.primary_color
+            color:app.theme_cls.primary_color
+            right_action_items:[['dots-vertical',lambda x:print('hello')]]
+            left_action_items:[['arrow-left',lambda x:print('back')]]
+            elevation:dp(0)
+        MDBoxLayout:
+            orientation:
+        ScrollView:
+            MDList:
+                id:beer_list
+
+                spacing:dp(23)
+                padding:dp(23)
+                CardItem:
+                CardItem:
+                CardItem:
+                CardItem:

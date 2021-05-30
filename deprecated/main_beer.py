@@ -21,5 +21,5 @@ class BeerApp(MDApp):
         importlib.reload(beer_list_screen)
         return BeerListScreen()
 
-C:\Users\Filhos\AppData\Roaming\TabNine\models
+
 BeerApp().run()

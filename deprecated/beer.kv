@@ -1,0 +1,21 @@
+#:include card_item.kv
+<BeerListScreen>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            title:'Beer'
+            anchor_title:'center'
+            md_bg_color:app.theme_cls.disabled_hint_text_color
+        ScrollView:
+            MDList:
+                id:beer_list
+                CardItem:
+                CardItem:
+                CardItem:
+                CardItem:
+                CardItem:
+
+    MDIconButton:
+        icon:'arrow-left'
+        y:root.height-self.height/ 2-STANDARD_INCREMENT /2
+
