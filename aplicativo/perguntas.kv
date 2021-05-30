@@ -1,0 +1,63 @@
+<PerguntasScreen>:
+    
+    FitImage:
+        source:'create_user_bg.png'
+    BoxLayout:
+        
+        orientation: 'vertical'
+
+        MDToolbar:
+            title:"Bilal app"
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding:20,10
+            Widget:
+                size_hint:1,.6
+            MDCard:
+                pos:(root.width//2-30),root.height/2
+                elevation:'10dp'
+                size_hint:1,.5
+                orientation: 'vertical'
+                padding:10
+                spacing:'10sp'
+                md_bg_color:rgba('#1d88da')
+                canvas:
+                    Color:
+                        rgba:(1,1,1,1)
+                    Line:
+                        points:self.pos[0],self.pos[1], self.size[0]+15,self.pos[1],self, 50,100
+                        width:2.
+                        # pos:self.pos
+                        # size:self.size[0]+12,self.size[1]+12
+
+                
+                MDBoxLayout:
+
+                    MDLabel:
+                        text:'Escolhe '
+                        color:1,1,1,1
+                    MDIcon:
+                        color:1,0,0,1 
+
+                MDTextFieldRect:
+                    size_hint:.9,.5
+                    pos:(20),root.height/2+38
+                    id:resposta
+                    on_text_validate: 
+                        print('oi')
+
+                MDFlatButton:
+                    text:'Escolher'
+                    
+                    on_release:
+                        root.mostrar_notificacao("Billal",resposta.text)
+                        
+                    canvas.before:
+                        Color:
+                            rgba:(1,0,0,1)
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+            Widget:
+

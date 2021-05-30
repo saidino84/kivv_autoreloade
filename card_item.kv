@@ -1,0 +1,96 @@
+
+#: import STANDARD_INCREMENT kivymd.material_resources.STANDARD_INCREMENT
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Animation kivy.animation.Animation
+
+<Spaco@Widget>:
+    size_hint_y:None
+    height:'12dp'
+
+<CardItem@RelativeLayout>:
+    size_hint_y:None
+    height:"200dp"
+    on_touch_down:
+        print(self.width)
+    MDCard:
+        padding:0,35,30,20
+        elevation:0
+        Widget:
+            size_hint_x:.9
+            canvas.before:
+                Color:
+                    rgba:.03,.36,.36,0
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        MDBoxLayout:
+            id:box
+            orientation:'vertical'
+            MDLabel:
+                text:'Cervejas De Luxo\n Mack Mahon'
+                font_style:'H6'
+                adaptive_height:True
+                color:app.theme_cls.primary_color
+            Spaco:
+
+            MDLabel:
+                text:'12x330ml'
+                font_style:'Caption'
+                adaptive_height:True
+            MDLabel:
+                text:'12x330ml'
+                font_style:'H6'
+                adaptive_height:True
+
+            MDRaisedButton:
+                text:'COMPRAR'
+                md_bg_color:app.theme_cls.disabled_hint_text_color
+                -width:box.width
+                -height:'48dp'
+                on_release:
+                    print(STANDARD_INCREMENT)
+                    Animation(x=0, d=0.4,t='in_back').start(box_info)
+                    #Animation(x=root.width-self.width+STANDARD_INCREMENT-10,d=0.2,t='in_quad').start(image)
+
+    RelativeLayout:
+        id:box_info
+        md_bg_color:app.theme_cls.primary_color
+        size_hint_y:None
+        height:root.height
+
+
+        canvas.before:
+            Color:
+                rgba:1,.32,.22,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+        x:STANDARD_INCREMENT*2 -self.width/2-STANDARD_INCREMENT-20
+        on_touch_down:
+            if self.collide_point(*args[1].pos):\
+
+            Animation(x=STANDARD_INCREMENT*2 -self.width/2-STANDARD_INCREMENT-20,d=0.9,t='out_back').start(box_info)
+            #Animation(x=root.width-self.width+STANDARD_INCREMENT-10).start(image)
+        Image:
+            id:image
+            source:'data/index_2_edited.png'
+            allow_stretch:True
+            width:STANDARD_INCREMENT*2
+            x:root.width-self.width+STANDARD_INCREMENT-10
+            #x:root.width-(self.width/2)
+        MDLabel:
+            markup:True
+            text:'Saidino \nDesigns\n[b]Python[\b] \n[color=#0ff]Programmer[/color]'
+            font_style:'H6'
+            adaptive_height:True
+            color:1,1,1,1
+            x:dp(22)
+
+
+
+
+
+
+
+
